@@ -105,6 +105,7 @@ void P1TT_Plus_Menu()
 		// Draw the menu
 		cout << "\n\t\t MENU";
 		cout << "\n\t P - Simple Pointer Demonstration";
+		cout << "\n\t A - Pointer Arithmetic";
 		cout << "\n\t X - Exit Program";
 		cout << "\n\t ";
 		cout << "\n\t Please enter your selection and hit RETURN : ";
@@ -114,10 +115,13 @@ void P1TT_Plus_Menu()
 
 		switch (toupper(selection))
 		{
-
 		case 'P':
 			cout << "\n\t You chose to start the Simple Pointer Presentation \n\n";
 			SimplePointer();		// Call function to run the Simple Pointer Presentation
+			break;
+		case 'A':
+			cout << "\n\t You chose to start the Pointer Arithmetic Presentation \n\n";
+			PointerArithmetic();		// Call function to run the Simple Pointer Presentation
 			break;
 		case 'X':
 			cout << "\n\t You chose to exit\n\n";
@@ -155,7 +159,7 @@ void SimplePointer()
 	***			LOCAL VARIABLE DECLARATIONS					***
 	**************************************************************/
 	// Local variables declared below inside portions of code that explains their functions
-	
+
 
 	Sleep(1500);
 	system("cls");
@@ -163,7 +167,7 @@ void SimplePointer()
 
 	cin.ignore();	// Clear out the keyboard buffer
 
-	
+
 	//text
 	int example1 = 10;	// .....
 
@@ -211,7 +215,7 @@ void SimplePointer()
 	cout << " \n\nThis becomes useful later on when doing pointer arithmetic. ";
 
 	hitEnter();		//pause for user to hit enter
-	
+
 	// text
 	*thePointer = 77;
 
@@ -232,7 +236,100 @@ void SimplePointer()
 	return;	//return to the mainMenu function
 
 }
+void PointerArithmetic()
+{
+	/**************************************************************
+	***		LOCAL CONSTANT DECLARATIONS AND DEFINITIONS		***
+	**************************************************************/
+	// no constants
 
+	/**************************************************************
+	***			LOCAL VARIABLE DECLARATIONS					***
+	**************************************************************/
+	// Local variables declared below inside portions of code that explains their functions
+
+
+	Sleep(1500);
+	system("cls");
+	gotoXY(0, 0);
+
+	cin.ignore();	// Clear out the keyboard buffer
+
+
+	//text
+
+	cout << "\n\n Let's look at some atithmetic aspects of using pointers.";
+	cout << "\n\n\n An integer array is set up with five values";
+
+	int exampleArray[] = { 10, 20, 30, 40, 50 };	// .....
+	cout << "\n\n\tCode: exampleArray[] = { 10, 20, 30, 40, 50 }";
+	cout << "\n\n The pointer for the array points to the first address.";
+	cout << "\n\n\tResult: Memory Address = " << &exampleArray <<" (using &exampleArray)";
+
+	cout << "\n\n We can set up a pointer variable for the array that we can increment.";
+
+	int *arrayPointer;
+	arrayPointer = exampleArray;
+	cout << " \n\n\tCode: int *arrayPointer;";
+	cout << " \n\tCode: arrayPointer = exampleArray;";
+	cout << "\n\n\tResult: arrayPointer = " << arrayPointer;
+	cout << "\n\tResult: *arrayPointer = " << *arrayPointer;
+
+	hitEnter();		//pause for user to hit enter
+
+	cout << "\n\n Because \"exampleArray\" is an array of integers, incrementing a variable that ";
+	cout << "\n points to it jumps to the next integer, not to the next address byte location.";
+
+	arrayPointer++;
+	cout << "\n\n\tCode: arrayPointer++;";
+	cout << "\n\n\tResult: arrayPointer = " << arrayPointer;
+	cout << "\n\tResult: *arrayPointer = " << *arrayPointer;
+
+	cout << "\n\n If you check the hexadecimal address, you'll see it has jumped by four,";
+	cout << "\n the number of bytes in memory for an integer.";
+
+	cout << "\n\n An array of doubles (instead of integers) would jump by a larger amount.";
+
+	hitEnter();		//pause for user to hit enter
+
+	cout << "\n\n The pointer variable can be incremented or decremented,";
+	cout << "\n but not multiplied or divided.";
+	cout << "\n\n Here it has three added to it, resuling in: ";
+
+	arrayPointer += 3;
+	cout << " \n\n\tCode: arrayPointer += 3;";
+	cout << "\n\n\tResult: arrayPointer = " << arrayPointer;
+	cout << "\n\tResult: *arrayPointer = " << *arrayPointer;
+
+	cout << "\n\n You'll notice that the byte address has incremented by 12 (decimal),";
+	cout << "\n or 0xC (hex).";
+
+	hitEnter();		//pause for user to hit enter
+
+	cout << "\n\n Decrement works the same way: ";
+
+	arrayPointer -= 2;
+	cout << " \n\n\tCode: arrayPointer -= 2;";
+	cout << "\n\n\tResult: arrayPointer = " << arrayPointer;
+	cout << "\n\tResult: *arrayPointer = " << *arrayPointer;
+
+
+	cout << "\n\n\n\n\n\n ";
+
+	
+
+	hitEnter();		//pause for user to hit enter
+	cout << "\n\n-------------------------------------------------------------------\n";
+
+
+
+	cout << "\n\n\nThank you" << " \n";
+
+	hitEnter();		//pause for user to hit enter
+
+	return;	//return to the mainMenu function
+
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //		END FUNCTION DEFINITIONS

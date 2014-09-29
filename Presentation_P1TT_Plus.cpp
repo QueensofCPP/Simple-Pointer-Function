@@ -34,6 +34,7 @@
 ***				gotoXY										***
 ***             hitEnter                                    ***
 ***				P1TT_Plus_Menu								***
+***				void PointerArithmetic						***
 ***				SimplePointer								***
 ***                                                         ***
 ***                                                         ***
@@ -75,12 +76,12 @@ using  namespace  std;	// Allows the "std::" prefix to be assumed on C++ std fun
 ***           FUNCTION PROTOTYPE DECLARATIONS				***
 **************************************************************/
 	// No local functions
-	// All functions included in header file ChrisOOPSfunc.h
+	// All functions included in header file PointerFunctions.h
 
 /**************************************************
 ***           GLOBAL CONSTANTS					***
 **************************************************/
-	//	All global constants included in header file ChrisOOPSfunc.h
+	//	All global constants included in header file PointerFunctions.h
 
 
 
