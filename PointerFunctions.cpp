@@ -106,6 +106,7 @@ void P1TT_Plus_Menu()
 		cout << "\n\t\t MENU";
 		cout << "\n\t P - Simple Pointer Demonstration";
 		cout << "\n\t A - Pointer Arithmetic";
+		cout << "\n\t C - Pointers to Constants";
 		cout << "\n\t X - Exit Program";
 		cout << "\n\t ";
 		cout << "\n\t Please enter your selection and hit RETURN : ";
@@ -121,7 +122,11 @@ void P1TT_Plus_Menu()
 			break;
 		case 'A':
 			cout << "\n\t You chose to start the Pointer Arithmetic Presentation \n\n";
-			PointerArithmetic();		// Call function to run the Simple Pointer Presentation
+			PointerArithmetic();		// Call function to run the Pointer Arithmetic Presentation
+			break;
+		case 'C':
+			cout << "\n\tYou chose the Pointers to Constants Presentation \n\n";
+			ConstantsPointers();		// Call function to run the Pointers to Constants Presentation
 			break;
 		case 'X':
 			cout << "\n\t You chose to exit\n\n";
@@ -139,6 +144,7 @@ void P1TT_Plus_Menu()
 
 	return;
 }
+
 
 /******************************************************************************
 
@@ -236,6 +242,15 @@ void SimplePointer()
 	return;	//return to the mainMenu function
 
 }
+
+
+/******************************************************************************
+
+FUNCTION NAME:	PointerArithmetic
+DESCRIPTION:	Function to use and describe use of pointer arithmetic functions
+DEVELOPER: 	Chris Myers, for Team "Queens of CPP"
+
+******************************************************************************/
 void PointerArithmetic()
 {
 	/**************************************************************
@@ -258,7 +273,7 @@ void PointerArithmetic()
 
 	//text
 
-	cout << "\n\n Let's look at some atithmetic aspects of using pointers.";
+	cout << "\n\n Let's look at some artithmetic aspects of using pointers.";
 	cout << "\n\n\n An integer array is set up with five values";
 
 	int exampleArray[] = { 10, 20, 30, 40, 50 };	// .....
@@ -330,6 +345,109 @@ void PointerArithmetic()
 	return;	//return to the mainMenu function
 
 }
+
+
+/******************************************************************************
+
+FUNCTION NAME:	ConstantsPointers
+DESCRIPTION:	Function to use and describe use of constants with pointers
+DEVELOPER: 	Chris Myers, for Team "Queens of CPP"
+
+******************************************************************************/
+void ConstantsPointers()
+{
+	/**************************************************************
+	***		LOCAL CONSTANT DECLARATIONS AND DEFINITIONS		***
+	**************************************************************/
+	// no constants
+
+	/**************************************************************
+	***			LOCAL VARIABLE DECLARATIONS					***
+	**************************************************************/
+	// Local variables declared below inside portions of code that explains their functions
+
+
+	Sleep(1500);
+	system("cls");
+	gotoXY(0, 0);
+
+	cin.ignore();	// Clear out the keyboard buffer
+
+
+	//text
+
+	cout << "\n\n Let's look at using pointers with constants.";
+
+	cout << "\n\n\n If you want to create a pointer to a constant, then the pointer";
+	cout << "\n has to be created as a \"Pointer to Constant\"";
+	cout << "\n\n For example, if example1 had been declared a constant:";
+	cout << "\n\n\tCode: const int example1 = 10;";
+	cout << "\n\n Then a pointer to example1 would need to be created:";
+	cout << "\n\n\tCode: const int *thePointer;";
+	cout << "\n\tCode: thePointer = &example1;";
+
+	const int example1 = 10;
+	const int *thePointer;
+	thePointer = &example1;
+
+	hitEnter();		//pause for user to hit enter
+
+	cout << "\n\n\n Earlier we said that you could indirectly change the value";
+	cout << "\n\ of a variable by using a pointer to that variable. ";
+
+	cout << "\n\n\n\t\" For instance, you can indirectly change the value of example1";
+	cout << "\n\t  by assigning a new value to \"*thePointer\" with this code:  \"";
+	cout << "\n\n\t\t\t\"*thePointer = 77;\"\n";
+	
+	cout << "\n\n However, if example1 is declared a constant, then the compiler";
+	cout << "\n\ will not allow the value of example1 to be changed: ";
+	cout << "\n\n\tCode: *thePointer = 77;  <-- Causes compile error.";
+	
+	//*thePointer = 77;  //<-- Causes compile error.
+
+	cout << "\n\n";
+
+	hitEnter();		//pause for user to hit enter
+
+	cout << "\n\n\n But this doesn't mean that there aren't other cases where a";
+	cout << "\n \"Pointer to Constant\" can't be changed";
+	cout << "\n\n\n For example, Set up an array as a constant and make a pointer to it:";
+	cout << "\n\n\tCode: int exampleArray[] = { 10, 20, 30, 40, 50 }; ";
+	cout << "\n\tCode: int *arrayPointer;";
+	cout << "\n\tCode: thePointer = &exampleArray;";
+	
+	const int exampleArray[] = { 10, 20, 30, 40, 50 };
+	const int *arrayPointer;
+	arrayPointer = exampleArray;
+
+	cout << " \n\n\n\n";
+
+	hitEnter();		//pause for user to hit enter
+
+
+	cout << "\n\n\n The pointer can be incremented to point at the next value in the array";
+	cout << "\n\t*arrayPointer = " << *arrayPointer;
+	cout << "\n\tMemory Address = " << arrayPointer;
+	cout << "\n\n\tCode: arrayPointer++;";
+	arrayPointer++;
+	cout << "\n\n\t*arrayPointer = " << *arrayPointer;
+	cout << "\n\tMemory Address = " << arrayPointer;
+
+	cout << "\n\n\n";
+
+	hitEnter();		//pause for user to hit enter
+
+	cout << "\n\n\n\n\n\n ";
+
+	cout << "\n\n\nThank you" << " \n";
+	cout << "\n\n\n\n\n\n ";
+
+	hitEnter();		//pause for user to hit enter
+
+	return;	//return to the mainMenu function
+
+}
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //		END FUNCTION DEFINITIONS

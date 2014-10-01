@@ -37,6 +37,7 @@ void gotoXY(int x, int y);	// Position the cursor to the column (x) and row (y)
 void P1TT_Plus_Menu();
 void SimplePointer();
 void PointerArithmetic();
+void ConstantsPointers();
 
 /***********************************************************************************************************************/
 
